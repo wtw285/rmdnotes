@@ -1,0 +1,15 @@
+---
+title: "Discrete Mathematics"
+date: "`r Sys.Date()`"
+description: "Study notes for WTW285"
+site: bookdown::bookdown_site
+documentclass: report
+url: https\://math.org.za/wtw285/gitbook/
+github-repo: "wtw285/rmdnotes"
+output: bookdown::gitbook
+bibliography: ref.bib
+biblio-style: amsalpha
+link-citations: yes
+---
+
+# About {-}

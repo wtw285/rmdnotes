@@ -15,7 +15,10 @@ on:
 jobs:
   bookdown:
     name: Render-Book
-    runs-on: macOS-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
     steps:
       - uses: actions/checkout@v1
       - uses: r-lib/actions/setup-r@v1

@@ -1,1 +1,146 @@
 # Relations
+
+## Binary Relation 
+
+$R$ is a **binary relation** on $A,B$ (from $A$ to $B$) if $R \subseteq A \times B$.
+<br>
+<div style="color:gray;"><hr>
+**Example 1:**
+
+Let $R$ be a binary relation on $\mathbb{R}$ defined by the following:
+
+$R:= \{(x,y) \in \mathbb{R} \times \mathbb{R} : x^2 +y^2 = 1\}$ which is equivalent to $xRy \iff x^2 +y^2 = 1$  on $\mathbb{R} \times \mathbb{R}$
+
+This is an example of a circle centered on (0,0) with a radius of 1, where $x \in \mathbb{R}$ and $y \in \mathbb{R}$.
+<hr></div>
+
+
+### Functions
+
+$R$ is a **function** from $A$ to $B$ if $R$ is a binary relation from $A$ to $B$ and:
+
+* **totally defined**: $\forall x \in A, \exists y \in B : xRy$
+* **well defined**: $\forall x \in A, \forall y \in B : (xRy \cap xRz) \implies (y=z)$
+
+
+### Totally Defined
+
+Let $R$ be a binary relation from $A$ to $B$.
+
+$R$ is **totally defined** if for every $x \in A$ there exists a $y \in B$ such that $(x,y) \in R$ in other words $xRy$
+
+<div style="color:gray;"><hr>
+**Example 1:**
+
+Let $P$ be a binary relation given by:
+
+$xPy \iff x^2 = y^2$  on $\mathbb{R_{\geq 0}} \times \mathbb{R}$ 
+
+which is the same as saying $P := \{(x, y) \in \mathbb{R_{\geq 0}} \times \mathbb{R} : x^2 = y^2\}$
+
+<br>
+We can clearly see that P is totally defined, since for any arbitrary $\alpha \in \mathbb{R_{\geq 0}}$ there exists at least one $\beta \in \mathbb{R}$ namely $\beta = \alpha$
+such that $\alpha^2 = \beta^2$
+
+Therefore for all $x \in \mathbb{R_{\geq 0}}$ there exists a $y \in \mathbb{R}$ such that $xRy$ and this implies that $P$ is totally defined.
+<hr></div>
+
+<div style="color:gray;">
+**Example 2:**
+
+Let $H$ be a binary relation given by:
+
+$H := \{(x, y) \in \mathbb{R} \times \mathbb{R} : xy = 1\}$ on $\mathbb{R}$ 
+
+which is the same as saying $xHy \iff xy=1 \iff y = \frac{1}{x}$
+
+<br>
+Now we can prove by contradiction that $H$ is not totally defined:
+
+The negation of totally defined is:
+
+$\neg(\forall x \in A, \exists y \in B : xRy)$  
+$=\exists x \in A, \forall y \in B : \neg (xRy)$
+
+So we need to find an arbitrary $x \in \mathbb{R}$ where there does not exist a $y \in \mathbb{R}$ such that $(x,y) \in H$
+
+We know that anything in the form $y=\frac{1}{x}$ is a *hyperbola* this means there exists a verticle asymptote at $x=0$.
+
+Therefore we can conclude that $H$ is not totally defined, when $x = 0$ there does not exist a $y \in \mathbb{R}$ such that $y = \frac{1}{x}$.
+<hr></div>
+
+
+### Well Defined
+
+Let $R$ be a binary relation from $A$ to $B$.
+
+$R$ is **well defined** if for every $x \in A$ and every $y \in B$ if $xRy$ and $xRz$ then $y=z$. This means every element $x \in \mathbb{R}$ maps to a *unique*
+$y \in \mathbb{R}$.
+
+<div style="color:gray;"><hr>
+**Example 1:**
+
+Let $H$ be a binary relation given by:
+
+$H := \{(x, y) \in \mathbb{R} \times \mathbb{R} : xy = 1\}$ on $\mathbb{R}$ 
+
+which is the same as saying $xHy \iff xy=1 \iff y = \frac{1}{x}$
+
+<br>
+We can easily see that this relation is well defined. We prove it is well defined by choosing two arbitrary $\alpha , \beta \in \mathbb{R}$ (within the co-domain of $H$)
+such that $xH\alpha$ and $xH\beta$ then we prove that $\alpha = \beta$
+
+$\begin{align*}
+x &= x \\
+\frac{1}{\alpha} &= \frac{1}{\beta} \\
+\alpha &= \beta
+\end{align*}$
+
+Therefore for every $x \in \mathbb{R}$ and every $y \in \mathbb{R}$ if $xHy$ and $xHz$ then $y=z$.
+<hr></div>
+
+<div style="color:gray;">
+**Example 2:**
+
+Let $P$ be a binary relation given by:
+
+$xPy \iff x^2 = y^2$  on $\mathbb{R_{\geq 0}} \times \mathbb{R}$ 
+
+which is the same as saying $P := \{(x, y) \in \mathbb{R_{\geq 0}} \times \mathbb{R} : x^2 = y^2\}$
+
+<br>
+Now we can prove by contradiction that $P$ is not well defined:
+
+The negation of well defined is:
+
+$\neg(\forall x \in A, \forall y \in B : (xRy \cap xRz) \implies (y=z))$  
+$=\exists x \in A, \exists y \in B : (xRy \cap xRz) \cap (y \neq z)$
+
+So we need to find an $x \in \mathbb{R_{\geq 0}}$ such that there exists a $y \in \mathbb{R}$ and $z \in \mathbb{R}$ where $y \neq z$ such that $xPy$ and $xPz$
+
+Let's choose $x = 1$ and we choose $y = -1$ therefore $xPy$ and $(1, -1) \in P$.
+
+Let's choose $x = 1$ and we choose $z = 1$ therefore $xPz$ and $(1, 1) \in P$.
+
+Therefore $P$ is not well defined since there exists a  $x \in \mathbb{R_{\geq 0}}$, $y \in \mathbb{R}$ and $z \in \mathbb{R}$ where $y \neq z$ such that $xPy$ and $xPz$
+
+<hr></div>
+
+## Ternary Relation 
+
+$R$ is a **ternary relation** on $A,B,C$ if $R \subseteq A \times B \times C$.
+<br>
+<div style="color:gray;"><hr>
+**Example 1:**
+
+Let $R$ be a binary relation on $\mathbb{R}$ defined by the following:
+
+$R:= \{(x,y,z) \in \mathbb{R} \times \mathbb{R} \times \mathbb{R} : x^2 +y^2 +z^2 \leq 5\}$
+
+This is an example of a solid sphere centered on (0,0, 0) with a radius of 5, where $x \in \mathbb{R}$ and $y \in \mathbb{R}$ and $z \in \mathbb{R}$.
+<hr></div>
+
+## Reflexivity, transitivity, symmetry
+### Reflexivity
+### Transitivity
+### Symmetry

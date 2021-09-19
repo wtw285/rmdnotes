@@ -1,5 +1,8 @@
 # Relations
 
+A relation between two sets is a **collection of ordered pairs containing one object from each set**. If the object x is from the first set and the object y is 
+from the second set, then the objects are said to be related if the ordered pair (x,y) is in the relation. A function is a type of relation.
+
 ## Binary Relation 
 
 $R$ is a **binary relation** on $A,B$ (from $A$ to $B$) if $R \subseteq A \times B$.
@@ -14,20 +17,13 @@ $R:= \{(x,y) \in \mathbb{R} \times \mathbb{R} : x^2 +y^2 = 1\}$ which is equival
 This is an example of a circle centered on (0,0) with a radius of 1, where $x \in \mathbb{R}$ and $y \in \mathbb{R}$.
 <hr></div>
 
-
-### Functions
-
-$R$ is a **function** from $A$ to $B$ if $R$ is a binary relation from $A$ to $B$ and:
-
-* **totally defined**: $\forall x \in A, \exists y \in B : xRy$
-* **well defined**: $\forall x \in A, \forall y \in B : (xRy \cap xRz) \implies (y=z)$
-
-
 ### Totally Defined
 
 Let $R$ be a binary relation from $A$ to $B$.
 
-$R$ is **totally defined** if for every $x \in A$ there exists a $y \in B$ such that $(x,y) \in R$ in other words $xRy$
+$R$ is **totally defined** if $\forall x \in A, \exists y \in B : xRy$.
+
+In other words, $R$ is **totally defined** if for every $x \in A$ there exists a $y \in B$ such that $(x,y) \in R$ in other words $xRy$.
 
 <div style="color:gray;"><hr>
 **Example 1:**
@@ -74,7 +70,9 @@ Therefore we can conclude that $H$ is not totally defined, when $x = 0$ there do
 
 Let $R$ be a binary relation from $A$ to $B$.
 
-$R$ is **well defined** if for every $x \in A$ and every $y \in B$ if $xRy$ and $xRz$ then $y=z$. This means every element $x \in \mathbb{R}$ maps to a *unique*
+$R$ is **well defined** if $\forall x \in A, \forall y \in B : (xRy \cap xRz) \implies (y=z)$.
+
+In other words, $R$ is **well defined** if for every $x \in A$ and every $y \in B$ if $xRy$ and $xRz$ then $y=z$. This means every element $x \in \mathbb{R}$ maps to a *unique*
 $y \in \mathbb{R}$.
 
 <div style="color:gray;"><hr>
@@ -137,10 +135,160 @@ Let $R$ be a binary relation on $\mathbb{R}$ defined by the following:
 
 $R:= \{(x,y,z) \in \mathbb{R} \times \mathbb{R} \times \mathbb{R} : x^2 +y^2 +z^2 \leq 5\}$
 
-This is an example of a solid sphere centered on (0,0, 0) with a radius of 5, where $x \in \mathbb{R}$ and $y \in \mathbb{R}$ and $z \in \mathbb{R}$.
+This is an example of a solid sphere centered on (0,0,0) with a radius of 5, where $x \in \mathbb{R}$ and $y \in \mathbb{R}$ and $z \in \mathbb{R}$.
 <hr></div>
+
+## Functions
+
+$R$ is a **function** from $A$ to $B$ if $R$ is a binary relation from $A$ to $B$ and:
+
+* **totally defined**: $\forall x \in A, \exists y \in B : xRy$
+* **well defined**: $\forall x \in A, \forall y \in B : (xRy \cap xRz) \implies (y=z)$
+
+
+### Injective
+
+Let $R: A \to B$ be a *function* then $R$ is **injective** or **one-to-one** when $\forall r, s \in A: (R(r) = R(s)) \implies (r=s)$
+
+In other words, $R$ is **injective** or **one-to-one** when for every $r \in A$ $R(r)$ is unique.
+
+### Surjective
+
+Let $R: A \to B$ be a *function* then $R$ is **surjective** or **onto** when $\forall y \in B, \exists x \in A: R(x) = y$
+
+In other words, $R$ is **surjective** or **onto** when for every $y \in B$ there exists an $x$ such that $x$ maps to $y$ through $R$ ($xRy$).
+
+### Bijective
+
+Let $R: A \to B$ be a *function* then $R$ is **bijective** if $R$ is both surjective and injective.
 
 ## Reflexivity, transitivity, symmetry
 ### Reflexivity
+
+Let $R$ be a binary relation on $A$ then $R$ is **reflexive** when $\forall x \in A: xRx$.
+
+In other words, for all $x \in A$ then $(x,x) \in R$.
+
 ### Transitivity
+
+Let $R$ be a binary relation on $A$ then $R$ is **transitive** when $\forall x,y,z \in A: (xRy \cap yRz) \implies xRz$.
+
+In other words, for all $x,y,z \in A$, if $(x,y) \in R$ and $(y,z) \in R$ then $(x,z) \in R$.
+
 ### Symmetry
+
+Let $R$ be a binary relation on $A$ then $R$ is **symemtric** when $\forall x,y \in A: xRy \implies yRx$.
+
+In other words, for all $x,y \in A$, if $(x,y) \in R$ then $(y,x) \in R$.
+
+### Irrefelxive
+### Assymetric
+### Antisymmetric
+
+## Closure
+
+### Transitive Closure
+
+Let $R$ be a binary relation on set $A$. The **transitive closure** of $R$ is the binary relation $R^t$ on $A$ that satisfies the following:
+
+1. $R^t$ is *transitive*
+2. $R \subseteq R^t$
+3. If $S$ is a transitive binary relation on $A$ such that $R \subseteq S$ then $R^t \subseteq S$.
+
+<div style="color:gray;"><hr>
+**Example 1:**
+
+Let $A:=\{0, 1, 2, 3\}$ determine the transitive closure of the binary relation $R$ on $A$ where $R$ is given by $R:=\{(0, 1), (1, 2), (2, 3)\}$
+
+We define $R^t$ to be a binary relation on $A$. We then satisfy *property 2* of **transitive closure** by adding  $(0, 1), (1, 2), (2, 3)$ to $R^t$.
+
+Now we satisfy *property 1* of **transitive closure**, if $(x,y) \in R^t$ and $(y,z) \in R^t$ then $(x,z) \in R^t$:
+
+* $(0, 1) \in R^t \cap (1, 2) \in R^t$ therefore we add $(0, 2)$ to $R^t$
+* $(1, 2) \in R^t \cap (2, 3) \in R^t$ therefore we add $(1, 3)$ to $R^t$
+* $(0, 2) \in R^t \cap (2, 3) \in R^t$ therefore we add $(0, 3)$ to $R^t$
+
+Therefore $R^t = \{(0, 1), (1, 2), (2, 3), (0, 2), (1, 3), (0, 3)\}$
+
+*Property 3* of **transitive closure** is automatically satisfied since removing one element form $R^t$ will result in either *property 1* or *property 2* not being satisfied.
+
+<hr></div>
+
+<div style="color:gray;">
+**Example 2:**
+
+Let $A:=\{0, 1, 2, 3\}$ determine the transitive closure of the binary relation $S$ on $A$ where $S$ is given by $S:=\{(0, 1), (1, 2), (2, 0), (3, 2)\}$
+
+We define $S^t$ to be a binary relation on $A$. We then satisfy *property 2* of **transitive closure** by adding  $(0, 1), (1, 2), (2, 0), (3, 2)$ to $S^t$.
+
+Now we satisfy *property 1* of **transitive closure**, if $(x,y) \in R^t$ and $(y,z) \in R^t$ then $(x,z) \in R^t$:
+
+* $(0, 1) \in S^t \cap (1, 2) \in S^t$ therefore we add $(0, 2)$ to $S^t$
+* $(1, 2) \in S^t \cap (2, 0) \in S^t$ therefore we add $(1, 0)$ to $S^t$
+* $(2, 0) \in S^t \cap (0, 1) \in S^t$ therefore we add $(2, 1)$ to $S^t$
+* $(3, 2) \in S^t \cap (2, 0) \in S^t$ therefore we add $(3, 0)$ to $S^t$
+* $(0, 1) \in S^t \cap (1, 0) \in S^t$ therefore we add $(0, 0)$ to $S^t$
+* $(1, 0) \in S^t \cap (0, 1) \in S^t$ therefore we add $(1, 1)$ to $S^t$
+* $(2, 0) \in S^t \cap (0, 2) \in S^t$ therefore we add $(2, 2)$ to $S^t$
+* $(3, 0) \in S^t \cap (0, 1) \in S^t$ therefore we add $(3, 1)$ to $S^t$
+
+Therefore $S^t = \{(0, 1), (1, 2), (2, 0), (3, 2), (0, 2), (1, 0), (2, 1), (3, 0), (0, 0), (1, 1), (2, 2), (3, 1)\}$
+
+*Property 3* of **transitive closure** is automatically satisfied since removing one element form $S^t$ will result in either *property 1* or *property 2* not being satisfied.
+<hr></div>
+
+## Equivalence relations
+
+A binary relation $R$ on set $A$ is called **equivalence relation** on $A$ when *R* is *reflexive, symmetric, and transitive*.
+
+### Equivalence class
+
+Let $R$ be an *equivalence relation* on set $A$ and let $a \in A$. Then the set
+
+$[a]_R := \{x \in A : xRa\}$
+
+is called teh **equivalence class** of *a* under $R$.
+
+#### Representative
+
+If $b \in A$ such that $[b]_R = [a]_R$ then $b$ is called a **representative** of the equivalence class $[a]_R$.
+
+<div style="color:gray;"><hr>
+**Example 1:**
+
+Consider the equivalence relation $R:=\{(0, 0), (0, 4), (1, 1), (1, 3), (2, 2), (3, 1), (3, 3), (4, 0), (4, 4)\}$ on the set $A:=\{0, 1, 2, 3, 4\} $
+
+These are the **equivalence classes** of $a \in A$ under $R$:
+
+* $[0] = \{x \in A : xR0\} = \{0, 4\}$
+* $[1] = \{x \in A : xR1\} = \{1, 3\}$
+* $[2] = \{x \in A : xR2\} = \{2\}$
+* $[3] = \{x \in A : xR3\} = \{1, 3\}$
+* $[4] = \{x \in A : xR4\} = \{0, 4\}$
+
+There are only 3 *distinct* classes under $R$ namely: $[0], [1] and [2]$ (we usually take the first distinct class).
+
+The **representatives** are:
+
+* $[0]:$ $0$ and $4$
+* $[1]:$ $1$ and $3$
+* $[2]:$ $2$
+* $[3]:$ $1$ and $3$
+* $[4]:$ $0$ and $4$
+
+<hr></div>
+
+### Lemma 8.3.2
+
+Let $R$ be an equivalence relation on a set $A$. For all $a, b \in A$, if $aRb$ then $[a] = [b]$ the converse is also true therefore $\forall a,b \in A: [a]=[b] \iff aRb$.
+
+#### Proof of Lemma 8.3.2
+
+### Lemma 8.3.3
+
+Let $R$ be an equivalence relation on a set $A$. Let $a,b \in A$. Exactly onw of the following is trueL
+
+1. $[a] \cap [b] = \emptyset$
+2. $[a] = [b]$
+
+#### Proof of Lemma 8.3.3
